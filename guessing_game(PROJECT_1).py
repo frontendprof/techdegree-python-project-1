@@ -1,6 +1,6 @@
 import random
-
-
+	
+	
 def start_game():
 	print("""
 					---------------------------------------------------
@@ -10,15 +10,20 @@ def start_game():
 					---------------------------------------------------
 	""")
 	
-attempts =[]
-def attempt(guess):
-	attempts.append(guess)
+
+	solution=random.randint(1,10)
+	print(solution)
 	
 	
-def condition():
+	attempts = []
+	def attempt(guess):
+		attempts.append(guess)
+		
+	
 	while True:
+		
 		prompt=int(input("Pick a number between 1 and 10  "))
-		attempt(prompt)
+		attempt(prompt)	
 	
 		if prompt < solution:
 			print("It is higher")
@@ -40,11 +45,13 @@ def condition():
 		It took you {} attempts to guess the correct number
 		
 		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^""".format(len(attempts)))
+		
 			break
-
+				
 			
 def play_again():
 	while True:
+		
 		play_again=input("""
 
 
@@ -52,7 +59,7 @@ Would you like to play again? [y]es/[no]   """)
 		play_again=play_again.lower()
 		if play_again == 'y':
 			start_game()
-			condition()
+			
 		elif play_again == 'n':
 			print("""
 		==========================================
@@ -63,7 +70,7 @@ Would you like to play again? [y]es/[no]   """)
 		""")
 			break
 		else:
-			print("                Excuse me?            ")
+			print("                					Excuse me?            ")
 			print("				   Please say yes or no, pressing 'y' or 'n' accordingly          ")
 
 
@@ -72,12 +79,6 @@ Would you like to play again? [y]es/[no]   """)
 
 start_game()
 
-
-solution=random.randint(1,10)
-print(solution)
-
-
-condition()
 
 
 play_again()
