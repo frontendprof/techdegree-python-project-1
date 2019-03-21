@@ -15,9 +15,7 @@ def start_game():
 	
 
 	solution=random.randint(1,10)
-	print(solution)
-	
-	
+		
 	attempts = []
 	def attempt(guess):
 		attempts.append(guess)
@@ -25,31 +23,70 @@ def start_game():
 	
 	while True:
 		
-		prompt=int(input("Pick a number between 1 and 10  "))
-		attempt(prompt)	
-	
-		if prompt < solution:
-			print("It is higher")
+		prompt=input("Pick a number between 1 and 10  ")
+				
+		try:
+			
+			prompt=int(prompt)
+			
+			if prompt>10 or prompt<1:
+				
+				print("""	
+								!!!!!!!!!!!!!!!!!!!!!!!!!
+									NOT TEXT
+							!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+								   NOT NUMBERS HIGHER THAN 10
+								!!!!!!!!!!!!!!!!!!!!!!!!!!!		
+								   NOT NUMBERS LOWER THAN 1
+								!!!!!!!!!!!!!!!!!!!!!!!!!!!
+								
+							Plese only enter numeric value between 1 and 10
+							
+								 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							""")
+				continue
 		
-		elif prompt > solution:
-			print("It is lower")
+			elif prompt < solution:
+				attempt(prompt)
+				print("It is higher")
+			
+			elif prompt > solution:
+				attempt(prompt)
+				print("It is lower")
+			
+			elif prompt==solution:
+				attempt(prompt)
+				print("""
+			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			
+			You've got it
+			
+			~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			""")
+				print("""
+			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+			
+			It took you {} attempts to guess the correct number
+			
+			^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^""".format(len(attempts)))
+			
+				break
+		except ValueError:
+			print("""	
+								!!!!!!!!!!!!!!!!!!!!!!!!!
+									NOT TEXT
+							!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+								   NOT NUMBERS HIGHER THAN 10
+								!!!!!!!!!!!!!!!!!!!!!!!!!!!		
+								   NOT NUMBERS LOWER THAN 1
+								!!!!!!!!!!!!!!!!!!!!!!!!!!!
+								
+							Plese only enter numeric value between 1 and 10
+							
+								 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+							""")
+			pass
 		
-		else:
-			print("""
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		
-		You've got it
-		
-		~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-		""")
-			print("""
-		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-		
-		It took you {} attempts to guess the correct number
-		
-		^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^""".format(len(attempts)))
-		
-			break
 				
 			
 def play_again():
@@ -74,14 +111,10 @@ Would you like to play again? [y]es/[no]   """)
 			break
 		else:
 			print("                					Excuse me?            ")
-			print("				   Please say yes or no, pressing 'y' or 'n' accordingly          ")
-
-
+			print("				   Please say yes or no, pressing 'y' or 'n' respectively          ")
 	
   
 
 start_game()
-
-
 
 play_again()
