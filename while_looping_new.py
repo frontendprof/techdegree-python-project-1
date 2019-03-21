@@ -1,5 +1,5 @@
-BRR
-MSAW
+#BRR
+#MSAW
 
 name = input("What's your name? ")
 
