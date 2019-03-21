@@ -1,6 +1,6 @@
 
-BRR
-MSAW
+# BRR
+# MSAW
 
 name = input("Please enter your name: ")
 number = input("Please enter a number: ")
